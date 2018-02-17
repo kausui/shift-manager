@@ -39,7 +39,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             
             // 外部キー設定
-            $table->foreign('office_id')->references('id')->on('offices')->onDelete('cascade');
+            //$table->foreign('office_id')->references('id')->on('offices');
         });
     }
 

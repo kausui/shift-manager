@@ -16,6 +16,11 @@
                         {!! Form::label('email', 'メールアドレス') !!}
                         {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
                     </div>
+                    
+                    <div class="form-group">
+                        {!! Form::label('office_name', '事業所名') !!}
+                        {!! Form::text('office_name', old('office_name'), ['class' => 'form-control']) !!}
+                    </div>
 
                     <div class="form-group">
                         {!! Form::label('password', 'パスワード') !!}

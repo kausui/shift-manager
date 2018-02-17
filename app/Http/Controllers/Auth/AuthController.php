@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Office;
+use App\RequiredStaffNumber;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -48,6 +50,7 @@ class AuthController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
+            'office_name' => 'required|max:255',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -60,9 +63,32 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        //Officeを作成
+        $office = new Office;
+        $office->name = $data['office_name'];
+        $office->save();
+        
+        //Officeの初期RequiredStaffNumbersも作成
+        $weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        
+        foreach ($weekdays as $weekday) {
+            for ($i = 0; $i < 24; $i++) {
+                //RequiredStaffNumberを作成
+                $rSN = new RequiredStaffNumber;
+                $rSN->office_id = $office->id;
+                $rSN->weekday = $weekday;
+                $rSN->time = $i;
+                $rSN->number = 0;
+                $rSN->save();
+            }
+        }
+        
+        //Userの出勤可能設定も作成する必要がある
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'office_id' => $office->id,
+            'role' => 'manager',
             'password' => bcrypt($data['password']),
         ]);
     }

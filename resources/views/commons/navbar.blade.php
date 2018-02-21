@@ -16,6 +16,17 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a href="{{ route('offices.index') }}">事業所情報</a>
+                                </li>
+                                <?php
+                                        $year = date('Y');
+                                        $month = date('n');
+                                    ?>
+                                <li>
+                                    
+                                    <a href="{{ action('ShiftsController@shifts_year_month', [$year, $month]) }}">今月のシフト</a>
+                                </li>
+                                <li>
                                     <a href="{{ route('users.show', Auth::user()->id) }}">マイページ</a>
                                 </li>
                                 <li role="separator" class="divider"></li>

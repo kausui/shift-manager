@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use App\Availability;
+use App\Shift;
 
 class UsersController extends Controller
 {
@@ -18,7 +20,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -28,7 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -39,7 +41,17 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $creater = \Auth::user();
+        
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'office_id' => $creater->office_id,
+            'role' => 'viewer',
+            'password' => bcrypt($request['password']),
+        ]);
+        
+        return redirect()->action('UsersController@show', ['id' => $user->id]);
     }
 
     /**
@@ -52,18 +64,20 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         
-        if ($user->office_id > 0) {
-            $office = $user->office;
-        } else {
-            $office = null;
-        }
-        
-        
+        if( \Auth::user()->office_id == $user->office_id) {
+                $office = $user->office;
+                $availabilities = $user->availabilities;
+                $shifts = $user->shifts;
 
-        return view('users.show', [
-            'user' => $user,
-            'office' => $office
-        ]);
+                return view('users.show', [
+                    'user' => $user,
+                    'office' => $office,
+                    'availabilities' => $availabilities,
+                    'shifts' => $shifts
+                ]);
+        } else {
+            return redirect('/');
+        }
     }
 
     /**
@@ -112,4 +126,6 @@ class UsersController extends Controller
     {
         //
     }
+    
+    
 }

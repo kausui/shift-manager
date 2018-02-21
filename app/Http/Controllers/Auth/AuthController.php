@@ -83,7 +83,7 @@ class AuthController extends Controller
             }
         }
         
-        //Userの出勤可能設定も作成する必要がある
+        //Userの出勤可能設定も作成する必要があると思ったが、なくてもいいと気づいた
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

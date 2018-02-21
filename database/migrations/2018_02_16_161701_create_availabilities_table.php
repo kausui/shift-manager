@@ -23,7 +23,7 @@ class CreateAvailabilitiesTable extends Migration
             $table->integer('start')->unsigned();
             
             //勤務可能時間の長さ
-            $table->integer('time')->unsigned();
+            $table->integer('hours')->unsigned();
             
             $table->timestamps();
             

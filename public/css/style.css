@@ -45,3 +45,11 @@ footer {
     background-color: #ed486f;
     border-color: #ed486f;
 }
+
+.saturday {
+    color: deepskyblue;
+}
+
+.sunday {
+    color: lightpink;
+}

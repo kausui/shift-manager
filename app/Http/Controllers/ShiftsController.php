@@ -298,8 +298,7 @@ class ShiftsController extends Controller
         //時間ごとの必要人数の取得
         $timestamp = mktime(0, 0, 0, $month, $day, $year);
         $date = date('w', $timestamp);
-        $weekday = $this->week_en[$date];
-        $required_staff_numbers = RequiredStaffNumber::where('office_id', $office->id)->where('weekday', $weekday)->orderBy('time', 'asc')->get();
+        $required_staff_numbers = RequiredStaffNumber::where('office_id', $office->id)->where('weekday', $date)->orderBy('time', 'asc')->get();
         
         //時間ごとの人数過不足計算
         foreach($required_staff_numbers as $required_staff_number)
@@ -353,7 +352,7 @@ class ShiftsController extends Controller
         //曜日と時間別の不足確認
         $required_staff_numbers = $office->required_staff_numbers;
         
-        $hours = 0;
+        $day_time_ = array();
         
         foreach ($required_staff_numbers as $required_staff_number) {
             $hours += $required_staff_number->number;

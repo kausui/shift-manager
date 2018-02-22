@@ -67,7 +67,11 @@ class UsersController extends Controller
         if( \Auth::user()->office_id == $user->office_id) {
                 $office = $user->office;
                 $availabilities = $user->availabilities;
-                $shifts = $user->shifts;
+                
+                $year = date('Y');
+                $month = date('n');
+                
+                $shifts = Shift::where('user_id', $user->id )->where('year', $year)->where('month', $month)->get();
 
                 return view('users.show', [
                     'user' => $user,
@@ -109,6 +113,9 @@ class UsersController extends Controller
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
+        $user->monthly_max_workhours = $request->monthly_max_workhours;
+        $user->daily_max_workhours = $request->daily_max_workhours;
+        $user->daily_min_workhours = $request->daily_min_workhours;
         $user->role = $request->role;
         
         $user->save();

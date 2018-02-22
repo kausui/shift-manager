@@ -53,3 +53,11 @@ footer {
 .sunday {
     color: lightpink;
 }
+
+.husoku_warning {
+    color: red;
+}
+
+.table > tbody > tr > th {
+     vertical-align: middle;
+}

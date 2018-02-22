@@ -25,6 +25,18 @@
             <div class="col-md-8">{!! Form::text('email', $user->email) !!}</div>
         </div>
         <div class="row">
+            <div class="col-md-2 text-right">{!! Form::label('monthly_max_workhours', '1ヵ月の最大労働時間:') !!}</div>
+            <div class="col-md-8">{!! Form::number('monthly_max_workhours', $user->monthly_max_workhours) !!}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 text-right">{!! Form::label('daily_max_workhours', '出勤日の最大労働時間:') !!}</div>
+            <div class="col-md-8">{!! Form::number('daily_max_workhours', $user->daily_max_workhours) !!}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 text-right">{!! Form::label('daily_mim_workhours', '出勤日の最低労働時間:') !!}</div>
+            <div class="col-md-8">{!! Form::number('daily_min_workhours', $user->daily_min_workhours) !!}</div>
+        </div>
+        <div class="row">
             <div class="col-md-2 text-right">{!! Form::label('role', '権限:') !!}</div>
             <div class="col-md-8">{!! Form::select('role', ['manager' => 'Manager', 'viewer' => 'Viewer'], $user->role, ['class' => 'form-control']) !!}</div>
         </div>

@@ -71,12 +71,12 @@ class AuthController extends Controller
         //Officeの初期RequiredStaffNumbersも作成
         $weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
         
-        foreach ($weekdays as $weekday) {
+        for ($j = 0; $j < 7; $j++) {
             for ($i = 0; $i < 24; $i++) {
                 //RequiredStaffNumberを作成
                 $rSN = new RequiredStaffNumber;
                 $rSN->office_id = $office->id;
-                $rSN->weekday = $weekday;
+                $rSN->weekday = $j;
                 $rSN->time = $i;
                 $rSN->number = 0;
                 $rSN->save();

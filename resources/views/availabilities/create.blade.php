@@ -9,7 +9,7 @@
                 {!! Form::open(['route' => ['availabilities.store'], 'method' => 'post']) !!}
                     <div class="form-group">
                         {!! Form::label('weekday', '出勤可能日') !!}
-                        {!! Form::select('weekday', ['Mon' => '月曜日', 'Tue' => '火曜日', 'Wed' => '水曜日', 'Thu' => '木曜日', 'Fri' => '金曜日', 'Sat' => '土曜日', 'Sun' => '日曜日'], '月曜日', ['class' => 'form-control']) !!}
+                        {!! Form::select('weekday', ['1' => '月曜日', '2' => '火曜日', '3' => '水曜日', '4' => '木曜日', '5' => '金曜日', '6' => '土曜日', '0' => '日曜日'], '月曜日', ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">

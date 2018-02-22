@@ -1,40 +1,37 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="user-profile">
-        <div class="row">
-            <div class="col-md-2 text-right">所属事業所</div>
-            <div class="col-md-8">事業所名、設定されてない場合は設定ページへのリンク</div>
-        </div>
+    <div>
+        <h2>従業員情報編集</h2>
         {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put']) !!}
         <div class="row">
             <!-- アカウント名はやっぱり編集できないようにする -->
             <div class="col-md-2 text-right">{!! Form::label('name', 'アカウント名:') !!}</div>
-            <div class="col-md-8">{!! Form::text('name', $user->name) !!}</div>
+            <div class="col-md-8">{!! Form::text('name', $user->name, ['class' => 'form-control']) !!}</div>
         </div>
         <div class="row">
             <div class="col-md-2 text-right">{!! Form::label('last_name', '姓:') !!}</div>
-            <div class="col-md-8">{!! Form::text('last_name', $user->last_name) !!}</div>
+            <div class="col-md-8">{!! Form::text('last_name', $user->last_name, ['class' => 'form-control']) !!}</div>
         </div>
         <div class="row">
             <div class="col-md-2 text-right">{!! Form::label('first_name', '名:') !!}</div>
-            <div class="col-md-8">{!! Form::text('first_name', $user->first_name) !!}</div>
+            <div class="col-md-8">{!! Form::text('first_name', $user->first_name, ['class' => 'form-control']) !!}</div>
         </div>
         <div class="row">
             <div class="col-md-2 text-right">{!! Form::label('email', 'Eメールアドレス:') !!}</div>
-            <div class="col-md-8">{!! Form::text('email', $user->email) !!}</div>
+            <div class="col-md-8">{!! Form::text('email', $user->email, ['class' => 'form-control']) !!}</div>
         </div>
         <div class="row">
             <div class="col-md-2 text-right">{!! Form::label('monthly_max_workhours', '1ヵ月の最大労働時間:') !!}</div>
-            <div class="col-md-8">{!! Form::number('monthly_max_workhours', $user->monthly_max_workhours) !!}</div>
+            <div class="col-md-8">{!! Form::number('monthly_max_workhours', $user->monthly_max_workhours, ['class' => 'form-control']) !!}</div>
         </div>
         <div class="row">
             <div class="col-md-2 text-right">{!! Form::label('daily_max_workhours', '出勤日の最大労働時間:') !!}</div>
-            <div class="col-md-8">{!! Form::number('daily_max_workhours', $user->daily_max_workhours) !!}</div>
+            <div class="col-md-8">{!! Form::number('daily_max_workhours', $user->daily_max_workhours, ['class' => 'form-control']) !!}</div>
         </div>
         <div class="row">
             <div class="col-md-2 text-right">{!! Form::label('daily_mim_workhours', '出勤日の最低労働時間:') !!}</div>
-            <div class="col-md-8">{!! Form::number('daily_min_workhours', $user->daily_min_workhours) !!}</div>
+            <div class="col-md-8">{!! Form::number('daily_min_workhours', $user->daily_min_workhours, ['class' => 'form-control']) !!}</div>
         </div>
         <div class="row">
             <div class="col-md-2 text-right">{!! Form::label('role', '権限:') !!}</div>

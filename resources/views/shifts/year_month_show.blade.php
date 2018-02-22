@@ -76,7 +76,7 @@
             <!-- 編集は管理者のみ表示 -->
             @if( Auth::user()->role == 'manager' )
                 {!! link_to_route('shifts_year_month_edit.get', '編集（未実装）', ['year' => $year, 'month' => $month], ['class' => 'btn btn-success', 'role' => 'button']) !!}
-                {!! link_to_route('shifts_year_month_generate.get', 'シフト自動生成', ['year' => $year, 'month' => $month], ['class' => 'btn btn-success', 'role' => 'button']) !!}
+                {!! link_to_route('shifts_year_month_generate.get', 'シフト自動生成（未実装）', ['year' => $year, 'month' => $month], ['class' => 'btn btn-success', 'role' => 'button']) !!}
             @endif
             
         </div>

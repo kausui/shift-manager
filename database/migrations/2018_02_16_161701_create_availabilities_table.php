@@ -17,7 +17,7 @@ class CreateAvailabilitiesTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             
             //曜日
-            $table->string('weekday');
+            $table->integer('weekday');
             
             //時間
             $table->integer('start')->unsigned();

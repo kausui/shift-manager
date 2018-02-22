@@ -24,7 +24,7 @@
                     <tr>
                         <th>月</th>
                         @foreach ($required_staff_numbers as $required_staff_number)
-                            @if ($required_staff_number->weekday == 'Mon')
+                            @if ($required_staff_number->weekday == 1)
                                 <td>{{ $required_staff_number->number }}</td>
                             @endif
                         @endforeach
@@ -32,7 +32,7 @@
                     <tr>
                         <th>火</th>
                         @foreach ($required_staff_numbers as $required_staff_number)
-                            @if ($required_staff_number->weekday == 'Tue')
+                            @if ($required_staff_number->weekday == 2)
                                 <td>{{ $required_staff_number->number }}</td>
                             @endif
                         @endforeach
@@ -40,7 +40,7 @@
                     <tr>
                         <th>水</th>
                         @foreach ($required_staff_numbers as $required_staff_number)
-                            @if ($required_staff_number->weekday == 'Wed')
+                            @if ($required_staff_number->weekday == 3)
                                 <td>{{ $required_staff_number->number }}</td>
                             @endif
                         @endforeach
@@ -48,7 +48,7 @@
                     <tr>
                         <th>木</th>
                         @foreach ($required_staff_numbers as $required_staff_number)
-                            @if ($required_staff_number->weekday == 'Thu')
+                            @if ($required_staff_number->weekday == 4)
                                 <td>{{ $required_staff_number->number }}</td>
                             @endif
                         @endforeach
@@ -56,7 +56,7 @@
                     <tr>
                         <th>金</th>
                         @foreach ($required_staff_numbers as $required_staff_number)
-                            @if ($required_staff_number->weekday == 'Fri')
+                            @if ($required_staff_number->weekday == 5)
                                 <td>{{ $required_staff_number->number }}</td>
                             @endif
                         @endforeach
@@ -64,7 +64,7 @@
                     <tr>
                         <th>土</th>
                         @foreach ($required_staff_numbers as $required_staff_number)
-                            @if ($required_staff_number->weekday == 'Sat')
+                            @if ($required_staff_number->weekday == 6)
                                 <td>{{ $required_staff_number->number }}</td>
                             @endif
                         @endforeach
@@ -72,7 +72,7 @@
                     <tr>
                         <th>日</th>
                         @foreach ($required_staff_numbers as $required_staff_number)
-                            @if ($required_staff_number->weekday == 'Sun')
+                            @if ($required_staff_number->weekday == 0)
                                 <td>{{ $required_staff_number->number }}</td>
                             @endif
                         @endforeach

@@ -17,7 +17,7 @@ class CreateRequiredStaffNumbersTable extends Migration
             $table->integer('office_id')->unsigned()->index();
             
             //曜日
-            $table->string('weekday');
+            $table->integer('weekday');
             
             //時間
             $table->integer('time')->unsigned();

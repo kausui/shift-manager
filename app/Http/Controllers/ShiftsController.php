@@ -337,10 +337,30 @@ class ShiftsController extends Controller
     
     public function shifts_year_month_generate($year, $month)
     {
+        $office = \Auth::User()->office;
         //シフト自動生成できるかどうかの条件の確認
+        //人時の不足確認
+        
+        $required_man_hour = app('App\Http\Controllers\OfficesController')->calcRequiredManHour($office->id);
+        $current_man_hour = app('App\Http\Controllers\OfficesController')->calcCurrentManHour($office->id);
+        
+        if($required_man_hour > $current_man_hour)
+        {
+            //エラーを表示して生成を中断
+            return redirect()->action('ShiftsController@shifts_year_month', [$year, $month]);
+        }
+        
+        //曜日と時間別の不足確認
+        $required_staff_numbers = $office->required_staff_numbers;
+        
+        $hours = 0;
+        
+        foreach ($required_staff_numbers as $required_staff_number) {
+            $hours += $required_staff_number->number;
+        }
+        
         
         //今月のシフトをクリア
-        $office = \Auth::User()->office;
         $users = $office->users;
         
         $shifts = array();

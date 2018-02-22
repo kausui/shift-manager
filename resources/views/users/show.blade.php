@@ -61,7 +61,7 @@
                     @foreach ($availabilities as $availability)
                     <tr>
                         
-                            <td>{{ $availability->weekday }}</td>
+                            <td>@include('users.weekday_conv')</td>
                             <td>{{ $availability->start }}:00</td>
                             <td>{{ ($availability->start + $availability->hours) }}:00</td>
                             <td>
@@ -92,7 +92,26 @@
                     <tr>
                         
                             <td>{{ $shift->day }}</td>
-                            <td>曜日の計算が必要</td>
+                            <td>
+                            <?php
+                                //曜日の計算
+                                $week_ja = [
+                                  '日', //0
+                                  '月', //1
+                                  '火', //2
+                                  '水', //3
+                                  '木', //4
+                                  '金', //5
+                                  '土', //6
+                                ];
+                                
+                                $timestamp = mktime(0, 0, 0, date('m'), $shift->day, date('Y'));
+                                $date = date('w', $timestamp);
+                                $day = $week_ja[$date];
+                                
+                                echo $day;
+                            ?>
+                            </td>
                             <td>{{ $shift->start }}:00</td>
                             <td>{{ ($shift->start + $shift->hours) }}:00</td>
                             <td>

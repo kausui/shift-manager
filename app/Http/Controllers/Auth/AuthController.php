@@ -86,6 +86,11 @@ class AuthController extends Controller
         //Userの出勤可能設定も作成する必要があると思ったが、なくてもいいと気づいた
         return User::create([
             'name' => $data['name'],
+            'last_name' => '未設定',
+            'first_name' => '未設定',
+            'monthly_max_workhours' => 0,
+            'daily_max_workhours' => 0,
+            'daily_min_workhours' => 0,
             'email' => $data['email'],
             'office_id' => $office->id,
             'role' => 'manager',

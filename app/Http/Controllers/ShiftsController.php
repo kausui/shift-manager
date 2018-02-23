@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Validator;
 
 use App\Office;
 use App\User;
@@ -337,16 +338,33 @@ class ShiftsController extends Controller
     public function shifts_year_month_generate($year, $month)
     {
         $office = \Auth::User()->office;
+        
+        
         //シフト自動生成できるかどうかの条件の確認
         //人時の不足確認
         
         $required_man_hour = app('App\Http\Controllers\OfficesController')->calcRequiredManHour($office->id);
         $current_man_hour = app('App\Http\Controllers\OfficesController')->calcCurrentManHour($office->id);
         
+        $hours_difference = $current_man_hour - $required_man_hour;
+        
         if($required_man_hour > $current_man_hour)
         {
+            
+            //適切なValidatorの作り方が必要
+            $validator = Validator::make(
+                ['hours_difference' => $current_man_hour],
+                ['hours_difference' => "max:${required_man_hour}"]
+            );
+            
+            
+            //dd($validator);
             //エラーを表示して生成を中断
-            return redirect()->action('ShiftsController@shifts_year_month', [$year, $month]);
+            $validator->getMessageBag()->add('hours_difference', '１週間に必要な従業員の労働時間が足りません。従業員を追加して出勤可能な曜日を登録してください。');
+            
+            
+            //return redirect()->action('ShiftsController@shifts_year_month', [$year, $month]);
+            return redirect()->back()->withErrors($validator);
         }
         
         //曜日と時間別の不足確認

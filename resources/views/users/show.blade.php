@@ -50,7 +50,6 @@
     </div>
     <div>
         <h2>出勤可能日時</h2>
-        <!-- 時間わりを表示 -->
             <table class="table">
                 <thead>
                     <th>曜日</th>

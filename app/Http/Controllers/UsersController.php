@@ -45,6 +45,11 @@ class UsersController extends Controller
         
         $user = User::create([
             'name' => $request['name'],
+            'last_name' => '未設定',
+            'first_name' => '未設定',
+            'monthly_max_workhours' => 0,
+            'daily_max_workhours' => 0,
+            'daily_min_workhours' => 0,
             'email' => $request['email'],
             'office_id' => $creater->office_id,
             'role' => 'viewer',

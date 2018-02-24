@@ -12,6 +12,7 @@ use App\Office;
 use App\User;
 use App\Shift;
 use App\RequiredStaffNumber;
+use App\Availability;
 
 class ShiftsController extends Controller
 {
@@ -368,14 +369,47 @@ class ShiftsController extends Controller
         }
         
         //曜日と時間別の不足確認
+        //事業所の必要人数を２次元配列に展開
         $required_staff_numbers = $office->required_staff_numbers;
         
-        $day_time_ = array();
+        $weekday_time_array = array( 0 => array(), 1=> array(), 2=> array(), 3=> array(), 4=> array(), 5=> array() , 6 => array());
         
         foreach ($required_staff_numbers as $required_staff_number) {
-            $hours += $required_staff_number->number;
+            $weekday_time_array[$required_staff_number->weekday] =  $weekday_time_array[$required_staff_number->weekday] + array( $required_staff_number->time => $required_staff_number->number);
         }
         
+        //2次元配列から従業員の労働可能時間を引く
+        $users = $office->users;
+        $error_weekday_time_array = array();
+        
+
+        foreach($users as $user)
+        {
+            $results = Availability::where('user_id', $user->id )->get();
+
+            foreach($results as $result)
+            {
+                $i = 0;
+                $end = $result->start + $result->hours;
+                
+                for ($i = $result->start; $i < $end; $i++)
+                {
+                    $weekday_time_array[$result->weekday][$i]--;
+                    
+                    //$userが最後の要素で $weekday_time_array[$result->weekday][$i]が+だった場合はエラー配列に記録
+                    if ($user === end($users))
+                    {
+                        if ($weekday_time_array[$result->weekday][$i] > 0)
+                        {
+                            $error_weekday_time_array = '${result->weekday}曜日の${i}時で${weekday_time_array[$result->weekday][$i]人足りていません。}';
+                        }
+                    }
+                }
+            }
+        }
+        
+        dd($weekday_time_array);
+        dd($error_weekday_time_array);
         
         //今月のシフトをクリア
         $users = $office->users;

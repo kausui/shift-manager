@@ -48,7 +48,6 @@
                         <tr>
                             <th>{!! link_to_route('users.show', $user->last_name." ".$user->first_name, $user->id , null) !!}</th>
                             @for ($i = 1; $i <= $last_day; $i++)
-                            <!-- シフトの表示。もっとダイレクトに条件を指定する方法を探せるか？ -->
                             <?php
                             //本日だったら黄色くする
                                 if( $current_cal && $this_day == $i) {
@@ -62,7 +61,7 @@
                                 @foreach ($shifts as $shift)
                                     @if( $shift->user_id == $user->id )
                                         @if( $shift->day == $i )
-                                            {{ $shift->start }}:00 <br>~<br> {{ $shift->start+$shift->hours }}:00
+                                            {!! link_to_route('shift_edit.get', "$shift->start".":00~".($shift->start+$shift->hours).":00", ['id' => $shift->id], null) !!}
                                         @endif
                                     @endif
                                 @endforeach

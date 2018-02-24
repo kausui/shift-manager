@@ -26,8 +26,10 @@
                         {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                     </div>
 
-                    <div class="text-right">
-                        {!! Form::submit('登録する', ['class' => 'btn btn-success']) !!}
+                    <div class="buttons text-right">
+                        {!! Form::submit('登録する', ['class' => 'btn btn-success pull-left']) !!}
+                        
+                        @include('commons.button_cancel')
                     </div>
                 {!! Form::close() !!}
             </div>

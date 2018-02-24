@@ -1,0 +1,1 @@
+{!! link_to( URL::previous(), 'キャンセル', ['class' => 'btn btn-default', 'role' => 'button']) !!}

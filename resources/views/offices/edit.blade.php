@@ -5,7 +5,7 @@
         {!! Form::model($office, ['route' => ['offices.update', $office->id], 'method' => 'put']) !!}
         <div class="row">
             <div class="col-md-1">{!! Form::label('name', '事業所名:') !!}</div>
-            <div class="col-md-8">{!! Form::text('name', $office->name, ['class' => 'form-control']) !!}</div>
+            <div class="col-md-7">{!! Form::text('name', $office->name, ['class' => 'form-control']) !!}</div>
         </div>
         <h2>時間ごとの必要従業員数（保存はページ移動の前に更新が必要）</h2>
             <!-- 時間わりを表示 -->
@@ -74,10 +74,11 @@
             </table>
             
         {!! $required_staff_numbers->render() !!}
-        <div class="row">
+        <div class="buttons">
             <!-- 編集は管理者のみ表示 -->
-            {!! link_to_route('offices.index', 'キャンセル', null, ['class' => 'btn btn-danger', 'role' => 'button']) !!}
+            
             {!! Form::submit('更新', ['class' => 'btn btn-success', 'role' => 'button']) !!}
+            @include('commons.button_cancel')
             
         </div>
         {!! Form::close() !!}

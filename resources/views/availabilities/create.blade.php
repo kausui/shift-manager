@@ -24,7 +24,7 @@
 
                     <div class="buttons text-right">
                         {!! Form::hidden('user_id', $user->id) !!}
-                        {!! Form::submit('登録する', ['class' => 'btn btn-success pull-left']) !!}
+                        {!! Form::submit('登録', ['class' => 'btn btn-success pull-left']) !!}
                         
                         @include('commons.button_cancel')
                     </div>

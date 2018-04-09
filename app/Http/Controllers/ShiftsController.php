@@ -83,7 +83,7 @@ class ShiftsController extends Controller
                 $shift->hours = $difference;
                 $shift->save();
                 
-                //登録された勤務時間を表示する
+                //登録された勤務時間を表示する処理が必要
                 return redirect()->back();
             } else {
                 //勤務時間をマイナスにできないというエラーを出して戻す

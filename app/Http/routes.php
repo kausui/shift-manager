@@ -22,6 +22,9 @@ Route::get('login', 'Auth\AuthController@getLogin')->name('login.get');
 Route::post('login', 'Auth\AuthController@postLogin')->name('login.post');
 Route::get('logout', 'Auth\AuthController@getLogout')->name('logout.get');
 
+//使い方
+Route::resource('manual', 'ManualController', ['only' => ['index']]);
+
 Route::group(['middleware' => 'auth'], function () {
     
     Route::resource('users', 'UsersController');

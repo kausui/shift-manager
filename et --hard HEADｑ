@@ -1,0 +1,74 @@
+[33mcommit c164191c3db09750b0587065df568efc881d7a49[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Sat Feb 24 17:31:57 2018 +0000
+
+    UI improvement
+
+[33mcommit caab612654cda6e05887e4d6e20069376766b205[m[33m ([m[1;31mheroku/master[m[33m)[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Fri Feb 23 04:08:06 2018 +0000
+
+    Modified UsersController store to avoid heroku DB error.
+
+[33mcommit 73a29654499a39b3bea12eb56f6fa6ffec7bc7af[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Thu Feb 22 15:39:50 2018 +0000
+
+    Modified weekday when the app tries to get records on YMD web view.
+
+[33mcommit 5a1386c2326e71c20b36fdca25bfd776a19d6e59[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Thu Feb 22 15:26:58 2018 +0000
+
+    added default values for last_name, first_name, monthly_max_workhours, daily_max_workhours, and daily_min_workhours to avoid heroku DB error.
+
+[33mcommit 47a19c267fff0a0d07e1dea6ef80fe5dbf7b8213[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Thu Feb 22 15:01:18 2018 +0000
+
+    Procfile
+
+[33mcommit 05dcdaf6a84626e85ed10979c28aedaf26d2a20f[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Thu Feb 22 14:58:09 2018 +0000
+
+    Before implementing shift auto generator 2.
+
+[33mcommit a3e71e6fa59cfa8bcdfc79ce58fa29f5e863b3a4[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Thu Feb 22 13:14:09 2018 +0000
+
+    Before implementing shift auto generator.
+
+[33mcommit 0650bd2eceba3238e415767797a37b0315db479c[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Wed Feb 21 13:23:47 2018 +0000
+
+    Monthly shift view.
+    New shift registration form.
+    Others.
+
+[33mcommit 293cbfdff574897768d4dc5854be2300ef027e9b[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Sat Feb 17 02:33:22 2018 +0000
+
+    Made some models, migrations, and controllers.
+    Initial Required Staff Numbers added.
+
+[33mcommit 5ea154c26087efb304dfa85427b0e110da8db99e[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Thu Feb 15 09:02:14 2018 +0000
+
+    authentication added
+
+[33mcommit 4b69b2fd8621b88e291dbcb37c3920901f670537[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Tue Feb 13 21:59:38 2018 +0000
+
+    set timezone
+
+[33mcommit 9f0f753081320d7b32c8be9e69a2870620f60add[m
+Author: d2vmIvjZU0vN58l <d2vmIvjZU0vN58l@live.jp>
+Date:   Tue Feb 13 21:50:44 2018 +0000
+
+    initial commit

@@ -22,7 +22,8 @@ footer {
     margin-top: -20px;
     margin-bottom: 20px;
     width: 100%;
-    height: 300px;
+    height: 500px;
+    background: url("/images/cover-bg.jpg") center center no-repeat;
     background-size: cover;
 }
 .cover .cover-inner {
@@ -65,4 +66,54 @@ footer {
 .buttons form {
     display: inline-block;
     margin: 0 5px;
+}
+
+/* List for Manual TOC */
+ol {
+    counter-reset: section;
+    list-style-type: none;
+}
+
+ol > li:before {
+    counter-increment : section;
+    content : counters(section, ".") " ";
+}
+
+.tocbox {
+  background: #f1f8ff;
+  padding: 0.5em 0.5em 0.5em 2em;
+  border: solid 3px #668ad8;
+}
+
+ol li {
+  padding: 0.2em 0;
+}
+
+img.manual {
+    border-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    margin: 20px 0px;
+}
+
+h3 {
+    border-left-width: thick;
+    border-left-style: solid;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+    border-color: #0aa;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 20px 0px;
+}
+
+h4 {
+    border-left-width: thick;
+    border-left-style: solid;
+    border-color: #aa0;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 20px 0px;
 }

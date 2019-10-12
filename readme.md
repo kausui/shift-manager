@@ -20,6 +20,6 @@ Eloquent ORMによるDB操作
 1対多関係
 
 
-### License
+## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

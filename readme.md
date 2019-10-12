@@ -19,6 +19,8 @@ Eloquent ORMによるDB操作
 
 1対多関係
 
+## Demo Site
+https://shift-manager-d2vm.herokuapp.com/
 
 ## License
 
